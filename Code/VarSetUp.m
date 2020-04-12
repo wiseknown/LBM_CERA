@@ -11,12 +11,13 @@ function [f,feq,u,v,rho,cx,cy] = VarSetUp(n,m,dimen,dis_velo)
 % feq     --> equilibrium distribution functions per each node
 % v       --> y axis velocity field (not macroscopic)
 % u       --> x axis velocity field (not macroscopic)
+% rho     --> density field (not macroscopic)
 
 if dimen == 2
     f   = zeros(n,m,dis_velo);
     feq = zeros(dis_velo,n*m);
-    v   = zeros(dis_velo,n*m);
-    u   = zeros(dis_velo,n*m);
+    v   = zeros(n*m);
+    u   = zeros(n*m);
     rho = ones(n,m);
     switch dis_velo
         case 9
