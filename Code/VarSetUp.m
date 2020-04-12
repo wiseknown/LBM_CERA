@@ -16,9 +16,9 @@ function [f,feq,u,v,rho,cx,cy] = VarSetUp(n,m,dimen,dis_velo)
 if dimen == 2
     f   = zeros(dis_velo,n*m);
     feq = zeros(dis_velo,n*m);
-    v   = zeros(n*m);
-    u   = zeros(n*m);
-    rho = ones(n,m);
+    v   = zeros(1,n*m);
+    u   = zeros(1,n*m);
+    rho = ones(1,n*m);
     switch dis_velo
         case 9
             cx = [0, 1, 0, -1, 0, 1, -1, -1, 1];
