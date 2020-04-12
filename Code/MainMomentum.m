@@ -1,4 +1,4 @@
-function [outputArg1,outputArg2] = MainMomentum(dimen,dis_velo,f,rho,u,v)
+function [rho,u,v] = MainMomentum(dimen,dis_velo,f,rho,u,v)
 % MAINMOMENTUM update rho (density),j_x x momentum, j_y y momentum
 % j_x = u*rho, j_y = v*rho
 % u y v are lattice velocities in x and y respectively
@@ -12,10 +12,23 @@ function [outputArg1,outputArg2] = MainMomentum(dimen,dis_velo,f,rho,u,v)
 % rho     --> density field (not macroscopic)
 
 %---OUTPUT PARAMETERS---
-% 
+% u,v and rho update one time step
 %
 %
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+if dimen == 2
+    switch dis_velo
+        case 5
+            %D2Q5 models implementation
+        case 9
+            %auxM is a matrix composed of cx,cy and ones
+            %rho,j_x, j_y is the column order
+            auxM = [1, 1, 1,  1, 1, 1,  1,  1, 1;
+                    0, 1, 0, -1, 0, 1, -1, -1, 1;
+                    0, 0, 1, 0, -1, 1, 1, -1, -1];
+            MM = auxM*f;
+    end
+else
+    %para casos de 3D 
+end
 end
 

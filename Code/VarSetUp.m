@@ -14,7 +14,7 @@ function [f,feq,u,v,rho,cx,cy] = VarSetUp(n,m,dimen,dis_velo)
 % rho     --> density field (not macroscopic)
 
 if dimen == 2
-    f   = zeros(n,m,dis_velo);
+    f   = zeros(dis_velo,n*m);
     feq = zeros(dis_velo,n*m);
     v   = zeros(n*m);
     u   = zeros(n*m);
