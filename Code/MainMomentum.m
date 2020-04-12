@@ -28,8 +28,8 @@ if dimen == 2
                     0, 0, 1, 0, -1, 1, 1, -1, -1];
             MM = auxM*f;
             rho = MM(1,:);
-            u   = MM(2,:);
-            v   = MM(3,:);  
+            u   = MM(2,:)./rho;
+            v   = MM(3,:)./rho;  
     end
 else
     %para casos de 3D 
