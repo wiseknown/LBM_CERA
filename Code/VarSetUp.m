@@ -1,4 +1,4 @@
-function [f,feq,u,v,rho,cx,cy] = VarSetUp(n,m,dimen,dis_velo)
+function [f,eq,u,v,rho,cx,cy] = VarSetUp(n,m,dimen,dis_velo)
 %INITIAL Set up the initial variables of the model
 % ---INPUT PARAMETERS---
 % n       --> number of nodes on x coord
@@ -8,14 +8,15 @@ function [f,feq,u,v,rho,cx,cy] = VarSetUp(n,m,dimen,dis_velo)
 %
 % ---OUTPUT PARAMETERS---
 % f       --> distribution functions per each node (x,y,..) dimension
-% feq     --> equilibrium distribution functions per each node
+% eq      --> equilibrium distribution functions or momentum equilibrium functions
+%             per each node
 % v       --> y axis velocity field (not macroscopic)
 % u       --> x axis velocity field (not macroscopic)
 % rho     --> density field (not macroscopic)
 
 if dimen == 2
     f   = zeros(dis_velo,n*m);
-    feq = zeros(dis_velo,n*m);
+    eq = zeros(dis_velo,n*m);
     v   = zeros(1,n*m);
     u   = zeros(1,n*m);
     rho = ones(1,n*m);
