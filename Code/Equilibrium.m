@@ -27,7 +27,7 @@ if dimen == 2
                 eq(8,:) = (1/36).*rho.*(1 - 3.*(u + v) + 9.*u.*v + 3.*uv_2);
                 eq(9,:) = (1/36).*rho.*(1 + 3.*(u - v) - 9.*u.*v + 3.*uv_2);
             end
-        case 'MRT-GM'
+        case 'MRT-GS'
             if dis_velo == 9
                 % c_s^2 = 1/3 (non dimensionalization)
                 % Taken from [1], pag. 421
