@@ -1,4 +1,4 @@
-function [u] = SetVelocityField(type,u0,u)
+function [u] = SetVelocityField(type,u0,u,n,m)
 %SETVELOCITYFIELD Set initial velocities and boundaries before
 %initializations
 %   Here are configured the initial velocity settings. There is not a
@@ -8,6 +8,7 @@ switch type
     case 'Input Velocity'
         u = reshape(u,[n,m]);
         u(1,:) = ones(1,m).*u0;
+        u = reshape(u, [1, n*m]);
 end 
 end
 

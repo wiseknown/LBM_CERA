@@ -16,6 +16,7 @@ if dimen == 2
             if dis_velo == 9
                 % c_s^2 = 1/3 (non dimensionalization)
                 % Taken from [1], pag. 93
+                % feq 
                 uv_2 = u.^2 + v.^2;
                 eq(1,:) = (2/9).*rho.*(2 - 3.*uv_2);
                 eq(2,:) = (1/18).*rho.*(2 + 6.*u + 9.*(u.^2) - 3.*uv_2);
@@ -31,6 +32,7 @@ if dimen == 2
             if dis_velo == 9
                 % c_s^2 = 1/3 (non dimensionalization)
                 % Taken from [1], pag. 421
+                % equilibrium moments
                 eq(1,:) = rho;
                 eq(2,:) = rho.*(2 + 3.*(u.^2 + v.^2));
                 eq(3,:) = rho.*(9.*(u.^2).*(v.^2) - 3.*(u.^2 + v.^2) + 1);

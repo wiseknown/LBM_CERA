@@ -1,4 +1,4 @@
-function [f,Minv] = StdInitialization(eq,scheme,dimen)
+function [f] = StdInitialization(f,eq,scheme,dimen,Minv)
 %STDINITIALIZATION Assure the initial values of the distribution funcions
 %   
 if dimen == 2
