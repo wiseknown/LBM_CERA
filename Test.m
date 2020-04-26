@@ -4,6 +4,8 @@
 [u] = SetVelocityField('Input Velocity',0.1,u,5,5);
 [eq] = Equilibrium(eq,rho,u,v,2,9,'MRT-GS');
 [f] = StdInitialization(f,eq,'MRT-GS',2,Minv);
+
+
 % s_0 to s_6 -> Liu et al. (2014) doi: j.ijheatmasstransfer.2014.02.047
 % s_7 and s_8 belongs to [0.89,1.17] doi: 10.1016/j.jcp.2014.10.038
 % This interval is optimal but not exclusive
@@ -16,3 +18,4 @@ MM = Momentum(2,9,f,M);
 % v index 6
 eq = Equilibrium(eq,MM(1,:),MM(4,:),MM(6,:),'MRT-GS');
 f = CollesionMRT2D(eq,S,MM,Minv);
+

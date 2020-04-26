@@ -1,6 +1,6 @@
 function [f] = CollesionBGK2D(f,eq,S)
 % COLLESION Collesion process
-%   Detailed explanation goes here
+%   S is a integer that is the collesion parameter 
     f = S.*eq  + (1 - S).*f;
 end
 
