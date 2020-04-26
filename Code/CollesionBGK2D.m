@@ -1,6 +1,6 @@
-function [f,eq] = CollesionBGK2D(dis_velo,f,eq)
-% COLLESION Summary of this function goes here
+function [f] = CollesionBGK2D(f,eq,S)
+% COLLESION Collesion process
 %   Detailed explanation goes here
-   
+    f = S.*eq  + (1 - S).*f;
 end
 
