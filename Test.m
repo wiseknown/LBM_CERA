@@ -18,4 +18,4 @@ MM = Momentum(2,9,f,M);
 % v index 6
 eq = Equilibrium(eq,MM(1,:),MM(4,:),MM(6,:),'MRT-GS');
 f = CollesionMRT2D(eq,S,MM,Minv);
-
+f = Streaming(f,9,cx,cy,5,5);
