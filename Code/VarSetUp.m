@@ -16,7 +16,7 @@ function [f,eq,u,v,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,varargin)
 % ---COMMENTS---
 % When use 3D is necessary to specify dimension 3 in optional arguments
 %
-
+% The velocity sets are put according to [1] 
 
 f   = zeros(dis_velo,f_nodes);
 eq  = zeros(dis_velo,f_nodes);
@@ -33,9 +33,13 @@ if size(varargin) == 0
 else
     switch dis_velo
         case 15
-            cx = [0, 1, 0, -1, 0, 1, -1, -1, 1];
-            cy = [0, 1, 0, -1, 0, 1, -1, -1, 1];
-            cz = [0, 0, 1, 0, -1, 1, 1, -1, -1];
+            cx = [0, 1,-1, 0, 0, 0, 0, 1,-1, 1,-1, 1,-1,-1, 1];
+            cy = [0, 0, 0, 1,-1, 0, 0, 1,-1, 1,-1,-1, 1, 1,-1];
+            cz = [0, 0, 0, 0, 0, 1,-1, 1,-1,-1, 1, 1,-1, 1,-1];
+        case 19
+            cx = [0, 1,-1, 0, 0, 0, 0, 1,-1, 1,-1, 0, 0, 1,-1, 1,-1, 0, 0];
+            cy = [0, 0, 0, 1,-1, 0, 0, 1,-1, 0, 0, 1,-1,-1, 1, 0, 0, 1,-1];
+            cz = [0, 0, 0, 0, 0, 1,-1, 0, 0, 0,-1, 1,-1, 0, 0,-1, 1,-1, 1];
     end
 end
 
