@@ -24,7 +24,7 @@ v   = zeros(1,f_nodes);
 u   = zeros(1,f_nodes);
 rho = ones(1,f_nodes);
 
-if size(varargin) == 0x0
+if size(varargin) == 0
     switch dis_velo
         case 9
             cx = [0, 1, 0, -1, 0, 1, -1, -1, 1];
