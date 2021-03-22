@@ -16,7 +16,7 @@ function [f,eq,u,v,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,varargin)
 % ---COMMENTS---
 % When use 3D is necessary to specify dimension 3 in optional arguments
 %
-% The velocity sets are put according to [1] 
+% The velocity sets are put according to [1], section 3.4.7.3, page 88-89
 
 f   = zeros(dis_velo,f_nodes);
 eq  = zeros(dis_velo,f_nodes);
