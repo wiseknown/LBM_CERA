@@ -1,11 +1,18 @@
-function [eq] = Equilibrium(eq,rho,u,v,dimen,dis_velo,scheme)
-%EQUILIBRIUMDIST Provides the equilibrium distribution function for BGK and
-%MRT Grand Schmidt schemes
+function [eq] = Equilibrium(rho,u,v,dis_velo,dimen,scheme)
+%Equilibrium --> Provides the equilibrium distribution function for BGK and
+%MRT Grand Schmidt schemes in 2 and 3 dimensions
 %
+%---INPUT PARAMETER---
+% rho     -->
+% 
+% dis_velo--> number of discrete velocities (numerical value) 
+% dimen   --> dimension, 2 or 3,D (numerical value) 
+% scheme  --> 1 opt: MRT-GS MRT Grand-Schmidt
 %
-%--- OUTPUT ---
+%---OUTPUT PARAMETERS---
 % eq ---> represents equilibrium distributions for BGK case 
 %         and momentum equilibrium functions for MRT case
+%
 %--- REFERENCES ---
 % [1] Krüger, T., Kusumaatmaja, H., Kuzmin, A., Shardt, O., Silva, G., 
 %     & Viggen, E. M. (2017). The lattice Boltzmann method. Springer 
@@ -46,6 +53,12 @@ if dimen == 2
     end
 else
     %3d cases
+    switch scheme
+        case 'MRT-GS'
+            if dis_velo == 15
+            elseif dis_velo == 19
+            end
+    end
 end
 end
 
