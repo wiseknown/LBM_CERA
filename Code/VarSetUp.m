@@ -1,4 +1,4 @@
-function [f,eq,u,v,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,varargin)
+function [f,eq,vel,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,varargin)
 %INITIAL Set up the initial variables of the model
 % ---INPUT PARAMETERS---
 % f_nodes --> number of fluid nodes in the media
@@ -9,8 +9,8 @@ function [f,eq,u,v,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,varargin)
 % f       --> distribution functions per each fluid node (x,y,..) dimension
 % eq      --> equilibrium distribution functions or momentum equilibrium 
 %             functions per each node 
-% v       --> y axis velocity field (not macroscopic)
-% u       --> x axis velocity field (not macroscopic)
+% vel     --> Cell type compose from velocity in x (u), velocity in y (v)
+%             and velocity in z (w) 
 % rho     --> density field (not macroscopic)
 %
 % ---COMMENTS---
@@ -20,8 +20,8 @@ function [f,eq,u,v,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,varargin)
 
 f   = zeros(dis_velo,f_nodes);
 eq  = zeros(dis_velo,f_nodes);
-v   = zeros(1,f_nodes);
-u   = zeros(1,f_nodes);
+vel{1} = zeros(1,f_nodes); %u velocity field
+vel{2} = zeros(1,f_nodes); %v velocity field
 rho = ones(1,f_nodes);
 
 if size(varargin) == 0
@@ -31,6 +31,7 @@ if size(varargin) == 0
             cy = [0, 0, 1, 0, -1, 1, 1, -1, -1];
     end
 else
+    vel{3} = zeros(1,f_nodes); %w velocity field
     switch dis_velo
         case 15
             cx = [0, 1,-1, 0, 0, 0, 0, 1,-1, 1,-1, 1,-1,-1, 1];
@@ -42,6 +43,5 @@ else
             cz = [0, 0, 0, 0, 0, 1,-1, 0, 0, 0,-1, 1,-1, 0, 0,-1, 1,-1, 1];
     end
 end
-
 end
 
