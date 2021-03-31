@@ -18,9 +18,11 @@ function [eq] = Equilibrium(rho,vel,dis_velo,dimen,scheme)
 % [1] Krüger, T., Kusumaatmaja, H., Kuzmin, A., Shardt, O., Silva, G., 
 %     & Viggen, E. M. (2017). The lattice Boltzmann method. Springer 
 %     International Publishing, 10, 978-3.
+
+u = vel{1};
+v = vel{2};
+
 if dimen == 2
-    u = vel{1};
-    v = vel{2};
     switch scheme
         case 'BGK'
             if dis_velo == 9
@@ -60,7 +62,47 @@ else
     switch scheme
         case 'MRT-GS'
             if dis_velo == 15
+                % c_s^2 = 1/3 (non dimensionalization)
+                % Taken from [1], pag. 670
+                % equilibrium moments
+                eq(1,:) = rho;
+                eq(2,:) = -rho + rho.*(u.^2 + v.^2 + w.^2);
+                eq(3,:) = rho - 5.*rho.*(u.^2 + v.^2 + w.^2);
+                eq(4,:) = rho.*u;
+                eq(5,:) = (-7/3).*rho.*u;
+                eq(6,:) = rho.*v;
+                eq(7,:) = (-7/3).*rho.*v;
+                eq(8,:) = rho.*w;
+                eq(9,:) = (-7/3).*rho.*w;
+                eq(10,:)= 2.*rho.*(u.^2) - rho.*((v.^2)+(w.^2));
+                eq(11,:)= rho.*((v.^2)-(w.^2));
+                eq(12,:)= rho.*u.*v;
+                eq(13,:)= rho.*v.*w;
+                eq(14,:)= rho.*u.*w;
+                eq(15,:)= 0;
             elseif dis_velo == 19
+                % c_s^2 = 1/3 (non dimensionalization)
+                % Taken from [1], pag. 672
+                % equilibrium moments
+                eq(1,:) = rho;
+                eq(2,:) = -11.*rho + 19.*rho.*(u.^2 + v.^2 + w.^2);
+                eq(3,:) = 3.*rho - (11/2).*rho.*(u.^2 + v.^2 + w.^2);
+                eq(4,:) = rho.*u;
+                eq(5,:) = (-2/3).*rho.*u;
+                eq(6,:) = rho.*v;
+                eq(7,:) = (-2/3).*rho.*v;
+                eq(8,:) = rho.*w;
+                eq(9,:) = (-2/3).*rho.*w;
+                eq(10,:)= 2.*rho.*(u.^2) - rho.*((v.^2)+(w.^2));
+                eq(11,:)= -rho.*u.^2 + (1/2).*rho.*((v.^2)+(w.^2));
+                eq(12,:)= rho.*(v.^2 - w.^2);
+                eq(13,:)= (-1/2).*rho.*(v.^2 - w.^2);
+                eq(14,:)= rho.*u.*v;
+                eq(15,:)= rho.*v.*w;
+                eq(16,:)= rho.*u.*w;
+                eq(17,:)= 0;
+                eq(18,:)= 0;
+                eq(19,:)= 0;
             end
     end
 end
