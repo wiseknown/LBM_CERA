@@ -1,5 +1,6 @@
 function [f,eq,vel,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,varargin)
 %INITIAL Set up the initial variables of the model
+%
 % ---INPUT PARAMETERS---
 % f_nodes --> number of fluid nodes in the media
 % dis_velo--> number of discrete velocities (numerical value) 
@@ -23,7 +24,7 @@ eq  = zeros(dis_velo,f_nodes);
 vel{1} = zeros(1,f_nodes); %u velocity field
 vel{2} = zeros(1,f_nodes); %v velocity field
 rho = ones(1,f_nodes);
-
+size(varargin)
 if size(varargin) == 0
     switch dis_velo
         case 9
