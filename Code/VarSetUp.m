@@ -24,7 +24,7 @@ eq  = zeros(dis_velo,f_nodes);
 vel{1} = zeros(1,f_nodes); %u velocity field
 vel{2} = zeros(1,f_nodes); %v velocity field
 rho = ones(1,f_nodes);
-size(varargin)
+size(varargin);
 if size(varargin) == 0
     switch dis_velo
         case 9
