@@ -10,7 +10,8 @@ function [u] = SetPlaneValue(plane,u0,u,m,n,o,Logic_M)
 %                from the origin. 
 % u         ---> the velocity coordinate vector or value set up previously 
 % u0        ---> the values of velocity or other 
-% n,m,o     ---> Size in discrete units (lattice units) of the media 
+% n,m,o     ---> Size in discrete units (lattice units) of the media
+% Logic_M   ---> logic matrix of locations in 3D array
 %
 %---OUTPUT PARAMETERS---
 % u         ---> the velocity coordinate (or other) vector with 

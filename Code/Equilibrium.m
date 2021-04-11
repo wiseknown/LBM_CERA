@@ -1,8 +1,9 @@
-function [eq] = Equilibrium(rho,vel,dis_velo,dimen,scheme)
+function [eq] = Equilibrium(eq,rho,vel,dis_velo,dimen,scheme)
 %Equilibrium --> Provides the equilibrium distribution function for BGK and
 %MRT Grand Schmidt schemes in 2 and 3 dimensions
 %
 %---INPUT PARAMETER---
+% eq      --> equilibrium moment storage
 % rho     --> density field 
 % vel     --> Cell type compose from velocity in x (u), velocity in y (v)
 %             and velocity in z (w)
@@ -11,7 +12,7 @@ function [eq] = Equilibrium(rho,vel,dis_velo,dimen,scheme)
 % scheme  --> 1 opt: MRT-GS MRT Grand-Schmidt
 %
 %---OUTPUT PARAMETERS---
-% eq ---> represents equilibrium distributions for BGK case 
+% eq ---> represents equilibrium distributions for BGK case (to review)
 %         and momentum equilibrium functions for MRT case
 %
 %--- REFERENCES ---
