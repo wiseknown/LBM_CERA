@@ -23,7 +23,7 @@ switch plane
         f_plane_nodes = false(m,n,o);
         f_plane_nodes(:,:,1) = Logic_M(:,:,1);
         temp_u(f_plane_nodes) = u0;
-        u = temp_u(Logic_M);
+        u = temp_u(Logic_M)';
    
     case 'xy2'
         temp_u = zeros(m,n,o);
@@ -31,7 +31,7 @@ switch plane
         f_plane_nodes = false(m,n,o);
         f_plane_nodes(:,:,o) = Logic_M(:,:,o);
         temp_u(f_plane_nodes) = u0;
-        u = temp_u(Logic_M);
+        u = temp_u(Logic_M)';
         
     case 'xz1'
         temp_u = zeros(m,n,o);
@@ -39,7 +39,7 @@ switch plane
         f_plane_nodes = false(m,n,o);
         f_plane_nodes(:,1,:) = Logic_M(:,1,:);
         temp_u(f_plane_nodes) = u0;
-        u = temp_u(Logic_M);
+        u = temp_u(Logic_M)';
         
     case 'xz2'
         temp_u = zeros(m,n,o);
@@ -47,7 +47,7 @@ switch plane
         f_plane_nodes = false(m,n,o);
         f_plane_nodes(:,n,:) = Logic_M(:,n,:);
         temp_u(f_plane_nodes) = u0;
-        u = temp_u(Logic_M);
+        u = temp_u(Logic_M)';
         
     case 'yz1'
         temp_u = zeros(m,n,o);
@@ -55,7 +55,7 @@ switch plane
         f_plane_nodes = false(m,n,o);
         f_plane_nodes(1,:,:) = Logic_M(1,:,:);
         temp_u(f_plane_nodes) = u0;
-        u = temp_u(Logic_M);
+        u = temp_u(Logic_M)';
         
     case 'yz2'
         temp_u = zeros(m,n,o);
@@ -63,7 +63,7 @@ switch plane
         f_plane_nodes = false(m,n,o);
         f_plane_nodes(m,:,:) = Logic_M(m,:,:);
         temp_u(f_plane_nodes) = u0;
-        u = temp_u(Logic_M);
+        u = temp_u(Logic_M)';
 end
  
 end
