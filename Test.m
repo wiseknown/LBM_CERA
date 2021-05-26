@@ -8,13 +8,16 @@ dimen = 3;     %dimension
 u0 = 0.9;
 
 [f_nodes,Logic_M] = ReadMedia('media_test.csv',m,n,o);
-[f,eq,vel,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,dimen);
+% meq is the equilibrium in the momentum space (not distribution
+% function)
+[f,meq,vel,rho,cx,cy,cz] = VarSetUp(f_nodes,dis_velo,dimen);
 [vel{1}] = SetPlaneValue('xy1',u0,vel{1},m,n,o,Logic_M);
-[eq] = Equilibrium(eq,rho,vel,dis_velo,dimen,'MRT-GS');
 
+[meq] = Equilibrium(meq,rho,vel,dis_velo,dimen,'MRT-GS');
+[M,Minv] = MRT_Matrix(dimen,dis_velo,'MRT-GS');
+[f] = StdInitialization(f,meq,'MRT-GS',Minv);
 %[f,eq,u,v,rho,cx,cy] = VarSetUp(5,5,2,9);
 %[M,Minv] = MRT_Matrix(2,9,'MRT-GS');
-%Std Initiallization
 %[u] = SetVelocityField('Input Velocity',0.1,u,5,5);
 %[eq] = Equilibrium(eq,rho,u,v,2,9,'MRT-GS');
 %[f] = StdInitialization(f,eq,'MRT-GS',2,Minv);
