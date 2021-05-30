@@ -2,3 +2,9 @@
 *.prj
 *.asv
 *.xml
+
+Python_Files/Media_Matrices/*.csv
+Python_Files/output_generated/
+Python_Files/PostProcessing/__pycache__/
+Python_Files/PorousMediaGenerationExample/__pycache__/
+Python_Files/PorousMediaGenerationExample/SOFC_mod_out/
