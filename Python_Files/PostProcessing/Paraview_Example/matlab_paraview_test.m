@@ -3,7 +3,7 @@ clear all       % clear all variables at workspace
 close all       % close all external windows of matlab
 clc             % clear command window
 
-sofc = cd	% assign the sofc path to a variable
+sofc = cd       % assign the sofc path to a variable
 
 % find paraview path in PC
 name_file = 'paraview.exe';                     % assign the file to search to a variable

@@ -18,7 +18,7 @@ import torch.utils.data
 import os                               # This module allows us to access functionalities dependent
 import numpy as np                      # Python library used for working with arrays
 # import torch.distributions as td
-from dcgan_test import Generator        # import class 'Generator' and function 'weight_init' 
+from PorousMediaGenerationExample.dcgan_test import Generator        # import class 'Generator' and function 'weight_init' 
 import torch.backends.cudnn as cudnn    # torch.backends controls the behavior of various backends that Pytorch supports.
 
 def alpha_func(alpha_value):
@@ -48,7 +48,7 @@ def alpha_func(alpha_value):
     size = 64 + (params['alpha']-1)*16
     out_dir = 'output_generated'
     os.makedirs( str(out_dir), exist_ok=True )
-    checkpoint = torch.load('SOFC_mod_out/netG_epoch_42.pth', map_location=device)
+    checkpoint = torch.load('PorousMediaGenerationExample/SOFC_mod_out/netG_epoch_42.pth', map_location=device)
 
     for i in range(0, params['num_samples']):
         if('cuda' in str(device)):
