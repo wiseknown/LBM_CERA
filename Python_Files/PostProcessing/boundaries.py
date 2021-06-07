@@ -3,6 +3,16 @@
 ''' Created on Sun Mar 14 00:09:39 2021
 @author: Ayrton M and jmatailov11 '''
 
+'''
+This code take a media matrix (3D array) as input,
+and return the boundaries of that media as matrix
+using binary dilation.
+
+Binary dilation method return "True" and "False" values,
+so it is necessary to convert these values to "0" and "1",
+this is achieved by multiplying  by 1.
+'''
+
 import numpy as np  
 from scipy.ndimage.morphology import binary_dilation
 
